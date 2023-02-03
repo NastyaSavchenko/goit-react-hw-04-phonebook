@@ -21,7 +21,10 @@ export const ContactListItems = ({
       <p>
         {name}: {number}
       </p>
-      <DeleteBtnStyled type="button" onClick={() => deleteContact(contactId)}>
+      <DeleteBtnStyled
+        type="button"
+        onClick={() => deleteContact(contactId, name)}
+      >
         <BsFillPersonXFill
           style={{
             marginRight: 15,

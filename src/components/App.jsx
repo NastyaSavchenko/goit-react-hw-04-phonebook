@@ -1,70 +1,57 @@
-import { Component } from 'react';
+import { useLocalStorage } from 'hooks/useLocalStorage';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { useState } from 'react';
 
 import { ContactForm, ContactList, Filter, Section } from '../components';
 import { AppStyled } from './App.styled';
 
-export class App extends Component {
-  state = {
-    contacts: [],
-    filter: '',
-  };
+export const App = () => {
+  const [contacts, setContacts] = useLocalStorage('contacts', []);
+  const [filter, setFilter] = useState('');
 
-  componentDidMount() {
-    const contactsList = JSON.parse(localStorage.getItem('contacts'));
-    if (contactsList) this.setState({ contacts: contactsList });
-  }
-
-  componentDidUpdate(prevState) {
-    if (prevState.contacts !== this.state.contacts) {
-      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
-    }
-  }
-
-  createNewContact = data => {
+  const createNewContact = data => {
     const normalizeFilter = data.name.toLowerCase();
-    const stateNameArray = this.state.contacts.map(({ name }) =>
-      name.toLowerCase()
-    );
+    const stateNameArray = contacts.map(({ name }) => name.toLowerCase());
 
     !stateNameArray.includes(normalizeFilter)
-      ? this.setState({ contacts: [...this.state.contacts, data] })
-      : alert(`${data.name} is already in contacts.`);
+      ? setContacts([...contacts, data])
+      : Notify.failure(`${data.name} is already in contacts.`, {
+          width: '350px',
+          opacity: 0.8,
+        });
   };
 
-  deleteContact = contactId => {
-    this.setState(prevStates => ({
-      contacts: prevStates.contacts.filter(contact => contact.id !== contactId),
-    }));
+  const deleteContact = (contactId, name) => {
+    setContacts(prevStates =>
+      prevStates.filter(contact => contact.id !== contactId)
+    );
+    Notify.success(`${name}  delete from your contacts`, {
+      width: '350px',
+      opacity: 0.8,
+    });
   };
 
-  onFilterChange = e => {
-    this.setState({ filter: e.currentTarget.value });
+  const onFilterChange = e => {
+    setFilter(e.currentTarget.value);
   };
 
-  findContact = () => {
-    const normalizeFilter = this.state.filter.toLowerCase();
-    return this.state.contacts.filter(contact =>
+  const findContact = () => {
+    const normalizeFilter = filter.toLowerCase();
+    return contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalizeFilter)
     );
   };
 
-  render() {
-    const { filter } = this.state;
-    const findContact = this.findContact();
-    return (
-      <AppStyled>
-        <Section title="Phonebook">
-          <ContactForm createNewContact={this.createNewContact} />
-        </Section>
+  return (
+    <AppStyled>
+      <Section title="Phonebook">
+        <ContactForm createNewContact={createNewContact} />
+      </Section>
 
-        <Section title="Contacts">
-          <Filter filterValue={filter} onChange={this.onFilterChange} />
-          <ContactList
-            contacts={findContact}
-            deleteContact={this.deleteContact}
-          />
-        </Section>
-      </AppStyled>
-    );
-  }
-}
+      <Section title="Contacts">
+        <Filter filterValue={filter} onChange={onFilterChange} />
+        <ContactList contacts={findContact()} deleteContact={deleteContact} />
+      </Section>
+    </AppStyled>
+  );
+};
