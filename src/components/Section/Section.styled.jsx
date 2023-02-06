@@ -12,6 +12,10 @@ export const SectionTitle = styled.h2`
 `;
 
 export const SectionWrapper = styled.div`
+  border: dotted 2px #6d1c03f5;
+  border-radius: 6px;
+  background-color: #e5e2e3c0;
+  padding: 30px;
   margin-bottom: 20px;
   align-items: center;
   max-width: 600px;

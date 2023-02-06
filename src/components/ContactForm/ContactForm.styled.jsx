@@ -9,8 +9,6 @@ export const FormTitle = styled.h3`
 `;
 
 export const FormInput = styled.input`
-  max-width: 400px;
-  width: 100%;
   height: 30px;
   margin-bottom: 20px;
   padding: 2px 20px;
@@ -28,6 +26,18 @@ export const FormInput = styled.input`
   &:hover,
   &:focus {
     border: solid 2px #3c322d;
+  }
+
+  @media screen and (max-width: 750px) {
+    min-width: 150px;
+  }
+
+  @media screen and (min-width: 750.5px) {
+    min-width: 250px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    min-width: 400px;
   }
 `;
 
