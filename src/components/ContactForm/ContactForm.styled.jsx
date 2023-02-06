@@ -29,28 +29,22 @@ export const FormInput = styled.input`
   }
 
   @media screen and (max-width: 750px) {
-    min-width: 150px;
+    max-width: 100px;
   }
 
   @media screen and (min-width: 750.5px) {
-    min-width: 250px;
-  }
-
-  @media screen and (min-width: 1200px) {
-    min-width: 400px;
+    max-width: 200px;
   }
 `;
 
 export const FormBtn = styled.button`
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  max-width: 400px;
-  width: 100%;
   height: 40px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0px 0px;
+  padding: 0px 5px;
   cursor: pointer;
 
   border-radius: 6px;
@@ -65,7 +59,7 @@ export const FormBtn = styled.button`
 
   font-family: 'Roboto';
   font-weight: 500;
-  font-size: 30px;
+  font-size: 10px;
 
   &:hover,
   &:focus {

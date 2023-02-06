@@ -4,6 +4,7 @@ export const FilterInputStyled = styled.input`
   height: 30px;
   margin-bottom: 20px;
   padding: 2px 20px;
+  width: 100%;
 
   border: solid 2px #f3848c;
   border-radius: 6px;
@@ -11,7 +12,7 @@ export const FilterInputStyled = styled.input`
 
   outline: none;
 
-  font-size: 18px;
+  font-size: 15px;
   line-height: 1.16;
   letter-spacing: 0.01em;
   color: #f3848c;
@@ -21,15 +22,11 @@ export const FilterInputStyled = styled.input`
   }
 
   @media screen and (max-width: 750px) {
-    min-width: 150px;
+    max-width: 100px;
   }
 
   @media screen and (min-width: 750.5px) {
-    min-width: 250px;
-  }
-
-  @media screen and (min-width: 1200px) {
-    min-width: 400px;
+    max-width: 200px;
   }
 `;
 
@@ -38,5 +35,5 @@ export const FilterTitleStyled = styled.h3`
 
   font-family: 'Roboto';
   font-weight: 700;
-  font-size: 30px;
+  font-size: 18px;
 `;

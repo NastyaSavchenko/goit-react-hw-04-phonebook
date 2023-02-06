@@ -13,9 +13,9 @@ export const ContactListItems = ({
     <ContactListItemsStyled>
       <BsFillPersonLinesFill
         style={{
-          marginRight: 30,
-          width: 30,
-          height: 30,
+          marginRight: 10,
+          width: 15,
+          height: 15,
         }}
       />
       <p>
@@ -27,7 +27,7 @@ export const ContactListItems = ({
       >
         <BsFillPersonXFill
           style={{
-            marginRight: 15,
+            marginRight: 5,
           }}
         />
         Delete

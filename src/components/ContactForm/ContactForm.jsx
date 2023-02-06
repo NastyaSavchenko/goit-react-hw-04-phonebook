@@ -70,9 +70,9 @@ const ContactForm = ({ createNewContact }) => {
       <FormBtn type="submit">
         <BsFillPersonPlusFill
           style={{
-            marginRight: 30,
-            width: 30,
-            height: 30,
+            marginRight: 10,
+            width: 20,
+            height: 20,
           }}
         />
         Add contact

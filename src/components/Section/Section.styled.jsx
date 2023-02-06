@@ -7,7 +7,7 @@ export const SectionTitle = styled.h2`
 
   font-family: 'Roboto';
   font-weight: 700;
-  font-size: 40px;
+  font-size: 26px;
   line-height: 2;
 `;
 
@@ -18,6 +18,6 @@ export const SectionWrapper = styled.div`
   padding: 30px;
   margin-bottom: 20px;
   align-items: center;
-  max-width: 600px;
+  max-width: 300px;
   width: 100%;
 `;

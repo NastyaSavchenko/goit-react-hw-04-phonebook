@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const ContactListStyled = styled.ul`
-  max-width: 900px;
   text-align: start;
   margin: 0 auto;
 `;
@@ -13,7 +12,15 @@ export const ContactListItemsStyled = styled.li`
 
   font-family: 'Roboto';
   font-weight: 500;
-  font-size: 30px;
+  font-size: 10px;
+
+  /* @media screen and (max-width: 750px) {
+    max-width: 100px;
+  } */
+
+  @media screen and (min-width: 750px) {
+    font-size: 15px;
+  }
 `;
 
 export const DeleteBtnStyled = styled.button`
@@ -22,8 +29,8 @@ export const DeleteBtnStyled = styled.button`
   align-items: center;
   margin-left: auto;
   margin-right: 0;
-  height: 30px;
-  padding: 0px 40px;
+  height: 20px;
+  padding: 0px 6px;
   cursor: pointer;
 
   border-radius: 6px;
@@ -37,7 +44,7 @@ export const DeleteBtnStyled = styled.button`
   border: inherit;
 
   font-family: 'Roboto';
-  font-size: 20px;
+  font-size: 14px;
 
   &:hover,
   &:focus {
