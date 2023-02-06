@@ -3,7 +3,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useState } from 'react';
 
 import { ContactForm, ContactList, Filter, Section } from '../components';
-import { AppStyled } from './App.styled';
+import { AppStyled, Main } from './App.styled';
 
 export const App = () => {
   const [contacts, setContacts] = useLocalStorage('contacts', []);
@@ -44,14 +44,16 @@ export const App = () => {
 
   return (
     <AppStyled>
-      <Section title="Phonebook">
-        <ContactForm createNewContact={createNewContact} />
-      </Section>
+      <Main>
+        <Section title="Phonebook">
+          <ContactForm createNewContact={createNewContact} />
+        </Section>
 
-      <Section title="Contacts">
-        <Filter filterValue={filter} onChange={onFilterChange} />
-        <ContactList contacts={findContact()} deleteContact={deleteContact} />
-      </Section>
+        <Section title="Contacts">
+          <Filter filterValue={filter} onChange={onFilterChange} />
+          <ContactList contacts={findContact()} deleteContact={deleteContact} />
+        </Section>
+      </Main>
     </AppStyled>
   );
 };

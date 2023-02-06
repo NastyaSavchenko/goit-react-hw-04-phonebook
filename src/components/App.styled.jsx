@@ -2,26 +2,17 @@ import styled from 'styled-components';
 
 import bg from '../img/notebook.jpg';
 
+export const Main = styled.main`
+  margin: 50px;
+  display: flex;
+  width: 100%;
+`;
+
 export const AppStyled = styled.div`
   width: 100%;
-  height: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  min-height: 1000px;
   display: flex;
-  padding: 30px;
   text-align: center;
-
-  @media screen and (min-width: 480px) {
-    width: 480px;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 768px;
-  }
-
-  @media screen and (min-width: 1200) {
-    width: 1200;
-  }
 
   background-repeat: no-repeat;
   background-size: cover;

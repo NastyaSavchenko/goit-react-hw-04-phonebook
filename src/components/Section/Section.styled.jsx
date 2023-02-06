@@ -18,6 +18,5 @@ export const SectionWrapper = styled.div`
   padding: 30px;
   margin-bottom: 20px;
   align-items: center;
-  max-width: 300px;
   width: 100%;
 `;
